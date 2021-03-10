@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.b.dao.MedicalMenuMapper">
+    <resultMap id="MedicalMenuResultMap" type="com.example.b.pojo.MedicalMenu">
+        <id column="medical_Id" jdbcType="INTEGER" property="medicalId"/>
+        <result column="medical_Name" jdbcType="VARCHAR" property="medicalName"/>
+        <result column="medical_Level" jdbcType="INTEGER" property="medicalLevel"/>
+    </resultMap>
+
+    <select id="getMedicalMenuList" resultMap="MedicalMenuResultMap">
+--         SELECT mm.*,m.*
+--         FROM medical_menu m
+--                  left join medical_menu mm on m.medical_id = mm.medical_level
+--         where mm.medical_level is not null;
+        select * from medical_menu;
+    </select>
+</mapper>

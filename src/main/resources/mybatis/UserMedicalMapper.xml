@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.b.dao.UserMedicalMapper">
+    <resultMap id="UserMedicalResultMap" type="com.example.b.pojo.UserMedical">
+        <id column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="leixing" jdbcType="VARCHAR" property="leiXing"/>
+    </resultMap>
+    <sql id="UserMedical_Column_list">
+        userId
+        ,username,password,leiXing
+    </sql>
+    <select id="loginMedicalTreatment" resultMap="UserMedicalResultMap">
+        SELECT
+        <include refid="UserMedical_Column_list"/>
+        FROM usermedical
+    </select>
+    <insert id="insertUserMedical" parameterType="com.example.b.pojo.UserMedical">
+        insert into usermedical(username, password, leixing)
+        values (#{username}, #{password}, #{leiXing});
+    </insert>
+</mapper>

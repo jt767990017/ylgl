@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.b.dao.PatientMapper">
+    <resultMap id="PatientResultMap" type="com.example.b.pojo.Patient">
+        <id column="patient_id" jdbcType="INTEGER" property="patientId"/>
+        <result column="patient_name" jdbcType="VARCHAR" property="patientName"/>
+        <result column="patient_sex" jdbcType="VARCHAR" property="patientSex"/>
+        <result column="patient_guoji" jdbcType="VARCHAR" property="patientGuoji"/>
+        <result column="patient_zhiye" jdbcType="VARCHAR" property="patientZhiye"/>
+        <result column="patient_gsmc" jdbcType="VARCHAR" property="patientGsmc"/>
+        <result column="patient_emali" jdbcType="VARCHAR" property="patientEmali"/>
+        <result column="patient_birthday" jdbcType="VARCHAR" property="patientBirthday"/>
+        <result column="patient_hyzk" jdbcType="VARCHAR" property="patientHyzk"/>
+        <result column="patient_id_card" jdbcType="VARCHAR" property="patientIdCard"/>
+        <result column="patient_sjhm" jdbcType="VARCHAR" property="patientSjhm"/>
+        <result column="patient_gsdh" jdbcType="VARCHAR" property="patientGsdh"/>
+        <result column="patient_sxlx" jdbcType="VARCHAR" property="patientSxlx"/>
+        <result column="patient_jzyx" jdbcType="VARCHAR" property="patientJzyx"/>
+        <result column="patient_sqxy" jdbcType="VARCHAR" property="patientSqxy"/>
+        <result column="patient_sqdbqz" jdbcType="VARCHAR" property="patientSqdbqz"/>
+        <result column="patient_zdfa" jdbcType="VARCHAR" property="patientZdfa"/>
+    </resultMap>
+
+    <select id="getPatientListFindAll" resultMap="PatientResultMap">
+        SELECT *
+        FROM patient
+    </select>
+    <insert id="insertPatientDao" parameterType="com.example.b.pojo.Patient">
+        insert into patient (patient_name, patient_sex, patient_guoji, patient_zhiye, patient_gsmc, patient_emali,
+                             patient_birthday,
+                             patient_hyzk, patient_id_card, patient_sjhm, patient_gsdh, patient_sxlx, patient_jzyx,
+                             patient_sqxy, patient_sqdbqz, patient_zdfa)
+        values (#{patientName}, #{patientSex}, #{patientGuoji}, #{patientZhiye}, #{patientGsmc}, #{patientEmali},
+                #{patientBirthday},
+                #{patientHyzk}, #{patientIdCard}, #{patientSjhm}, #{patientGsdh}, #{patientSxlx}, #{patientJzyx},
+                #{patientSqxy},
+                #{patientSqdbqz}, #{patientZdfa})
+    </insert>
+    <update id="updatePatientDao">
+        update patient
+        set patient_zdfa = #{patientZdfa}
+        where patient_id = #{patientId}
+    </update>
+</mapper>

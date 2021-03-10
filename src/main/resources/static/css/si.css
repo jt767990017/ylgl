@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+.info-title h3 {
+    color: #3f4167;
+    font-weight: bold;
+    border-bottom: 2px solid #3f4167;
+    padding-bottom: 5px;
+}
+
+.info-title {
+    margin: 0 3em 0em 2em!important;
+}
+
+.login-content .panel {
+    margin-top: 3em;
+}
+
+.login-content .btn-success {
+    margin-top: 2em;
+}

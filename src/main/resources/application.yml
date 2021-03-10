@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+#数据库连接配置
+spring:
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.2:3306/medical?useUnicode=true&characterEncoding=utf-8
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  #热部署
+  devtools:
+    restart:
+      enabled: true #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: /
+  freemarker:
+    cache: false #页面不加载缓存，修改即时生效
+
+#使用Thymeleaf模板引擎
+#  thymeleaf:
+#    encoding: UTF-8
+#    cache: false
+#    servlet:
+#      content-type: text/html
+#    prefix: classpath:/templates/
+#    suffix: .html
+
+
+#MyBatis配置
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: com.example.b.pojo
+
+#日志
+logging:
+  config: classpath:logback-spring.xml
