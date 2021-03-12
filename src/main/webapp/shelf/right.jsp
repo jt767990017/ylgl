@@ -6,6 +6,5 @@
     <title>Title</title>
 </head>
 <body bgcolor="#fff8dc">
-右
 </body>
 </html>
